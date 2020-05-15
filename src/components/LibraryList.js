@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {View, FlatList, TouchableOpacity} from 'react-native';
+import {
+  View,
+  FlatList,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+} from 'react-native';
 import ListItem from './ListItem';
 
 class LibraryList extends Component {
@@ -15,7 +20,7 @@ class LibraryList extends Component {
       <FlatList
         data={this.props.libraries}
         renderItem={({item}) => this.renderItem(item)}
-        keyExtractor={(library) => library.id}
+        keyExtractor={(library) => `"${library.id}"`}
       />
     );
   }
